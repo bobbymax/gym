@@ -60,7 +60,7 @@ class AttestationController extends Controller
 
         $user->attestation()->save($attestation);
 
-        return redirect()->route('users.index');
+        return back();
     }
 
     /**
@@ -111,7 +111,7 @@ class AttestationController extends Controller
 
         $user->attestation()->save($attestation);
 
-        return redirect()->route('users.index');
+        return back();
     }
 
     /**
