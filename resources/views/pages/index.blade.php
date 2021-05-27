@@ -86,11 +86,13 @@
                                         </div>
 
 
-                                        @if(! is_object(auth()->user()->attestation))
+                                        @if(auth()->user()->sex === null)
                                         <div id="profile-settings" class="tab-pane fade">
                                             <div class="pt-3">
                                                 <div class="settings-form">
                                                     <form action="{{ route('users.update', auth()->user()->staff_no) }}" method="POST">
+                                                        @csrf
+                                                        @method('PATCH')
                                                         <div class="row">
                                                             <div class="col-3">
                                                                 <div class="form-group">
@@ -152,7 +154,8 @@
                                                 </div>
                                             </div>
                                         </div>
-
+                                        @endif
+                                        @if(! is_object(auth()->user()->attestation))
                                         <div id="attestation" class="tab-pane fade">
                                             <div class="pt-5">
                                                 <div class="settings-form">
