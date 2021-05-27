@@ -137,9 +137,9 @@
                                                                 <div class="form-group">
                                                                     <select name="type" id="type" class="form-control">
                                                                         <option value="" selected disabled>Select Staff Type</option>
-                                                                        <option value="male" {{ auth()->user()->sex == "staff" ? ' selected' : '' }}>Staff</option>
-                                                                        <option value="female" {{ auth()->user()->sex == "medical" ? ' selected' : '' }}>Medical Staff</option>
-                                                                        <option value="female" {{ auth()->user()->sex == "instructor" ? ' selected' : '' }}>Gym Instructor</option>
+                                                                        <option value="staff" {{ auth()->user()->sex == "staff" ? ' selected' : '' }}>Staff</option>
+                                                                        <option value="medical" {{ auth()->user()->sex == "medical" ? ' selected' : '' }}>Medical Staff</option>
+                                                                        <option value="instructor" {{ auth()->user()->sex == "instructor" ? ' selected' : '' }}>Gym Instructor</option>
                                                                     </select>
                                                                 </div>
                                                             </div>
