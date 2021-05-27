@@ -37,9 +37,11 @@
                                     <ul class="nav nav-tabs">
                                         <li class="nav-item"><a href="#about-me" data-toggle="tab" class="nav-link">About Me</a>
                                         </li>
-                                        @if(! is_object(auth()->user()->attestation))
+                                        @if(auth()->user()->sex === "undefined")
                                         <li class="nav-item"><a href="#profile-settings" data-toggle="tab" class="nav-link">Profile</a>
                                         </li>
+                                        @endif
+                                        @if(! is_object(auth()->user()->attestation))
                                         <li class="nav-item"><a href="#attestation" data-toggle="tab" class="nav-link">Attestation</a>
                                         </li>
                                         @endif
