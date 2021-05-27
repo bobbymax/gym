@@ -33,7 +33,7 @@ class MemberController extends Controller
             return false;
         }
 
-        return redirect()->route('users.index');
+        return redirect()->route('welcome');
 
     }
 
