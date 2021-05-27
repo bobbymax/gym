@@ -50,14 +50,6 @@
                                     </ul>
                                     <div class="tab-content">
                                         <div id="about-me" class="tab-pane fade active show">
-                                            <div class="profile-about-me">
-                                                <div class="pt-4 border-bottom-1 pb-3">
-                                                    <h4 class="text-primary">About Me</h4>
-                                                    <p class="mb-2">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence was created for the bliss of souls like mine.I am so happy, my dear friend, so absorbed in the exquisite sense of mere tranquil existence, that I neglect my talents.</p>
-                                                    <p>A collection of textile samples lay spread out on the table - Samsa was a travelling salesman - and above it there hung a picture that he had recently cut out of an illustrated magazine and housed in a nice, gilded frame.</p>
-                                                </div>
-                                            </div>
-
                                             <div class="profile-personal-info">
                                                 <h4 class="text-primary mb-4">Personal Information</h4>
                                                 <div class="row mb-4 mb-sm-4">
@@ -98,7 +90,7 @@
                                         <div id="profile-settings" class="tab-pane fade">
                                             <div class="pt-3">
                                                 <div class="settings-form">
-                                                    <form action="{{ route('attestations.store', auth()->user()->staff_no) }}" method="POST">
+                                                    <form action="{{ route('users.update', auth()->user()->staff_no) }}" method="POST">
                                                         <div class="row">
                                                             <div class="col-4">
                                                                 <div class="form-group">
@@ -113,16 +105,6 @@
                                                             <div class="col-4">
                                                                 <div class="form-group">
                                                                     <input type="text" name="email" class="form-control" placeholder="Enter Email" value="{{ auth()->user()->email }}">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-4">
-                                                                <div class="form-group">
-                                                                    <select name="department_id" id="department_id" class="form-control">
-                                                                        <option value="" selected disabled>Select Department</option>
-                                                                        @foreach($departments as $department)
-                                                                            <option value="{{ $department->id }}">{{ $department->name }}</option>
-                                                                        @endforeach
-                                                                    </select>
                                                                 </div>
                                                             </div>
                                                             <div class="col-4">
