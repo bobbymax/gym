@@ -92,27 +92,27 @@
                                                 <div class="settings-form">
                                                     <form action="{{ route('users.update', auth()->user()->staff_no) }}" method="POST">
                                                         <div class="row">
-                                                            <div class="col-4">
+                                                            <div class="col-3">
                                                                 <div class="form-group">
                                                                     <input type="text" name="staff_no" class="form-control" placeholder="Enter Staff ID" value="{{ auth()->user()->staff_no }}">
                                                                 </div>
                                                             </div>
-                                                            <div class="col-4">
+                                                            <div class="col-3">
                                                                 <div class="form-group">
                                                                     <input type="text" name="name" class="form-control" placeholder="Enter Fullname" value="{{ auth()->user()->name }}">
                                                                 </div>
                                                             </div>
-                                                            <div class="col-4">
+                                                            <div class="col-3">
                                                                 <div class="form-group">
                                                                     <input type="text" name="email" class="form-control" placeholder="Enter Email" value="{{ auth()->user()->email }}">
                                                                 </div>
                                                             </div>
-                                                            <div class="col-4">
+                                                            <div class="col-3">
                                                                 <div class="form-group">
                                                                     <input type="text" name="mobile" class="form-control" placeholder="Enter Mobile Number" value="{{ auth()->user()->mobile ?? old('mobile') }}">
                                                                 </div>
                                                             </div>
-                                                            <div class="col-4">
+                                                            <div class="col-3">
                                                                 <div class="form-group">
                                                                     <input type="date" name="dob" class="form-control" placeholder="Select Date of Birth" value="{{ auth()->user()->dob }}">
                                                                 </div>
@@ -139,15 +139,6 @@
                                                                         <option value="female" {{ auth()->user()->sex == "medical" ? ' selected' : '' }}>Medical Staff</option>
                                                                         <option value="female" {{ auth()->user()->sex == "instructor" ? ' selected' : '' }}>Gym Instructor</option>
                                                                     </select>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-3">
-                                                                <div class="input-group">
-                                                                    <div class="custom-file">
-                                                                        <input type="file" class="custom-file-input">
-                                                                        <label class="custom-file-label">Choose file</label>
-
-                                                                    </div>
                                                                 </div>
                                                             </div>
 
