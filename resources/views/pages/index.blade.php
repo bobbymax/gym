@@ -98,7 +98,7 @@
                                         <div id="profile-settings" class="tab-pane fade">
                                             <div class="pt-3">
                                                 <div class="settings-form">
-                                                    <form action="{{ route('attestations.store', $user->staff_no) }}" method="POST">
+                                                    <form action="{{ route('attestations.store', auth()->user()->staff_no) }}" method="POST">
                                                         <div class="row">
                                                             <div class="col-4">
                                                                 <div class="form-group">
