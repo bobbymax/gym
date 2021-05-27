@@ -86,7 +86,7 @@
                                         </div>
 
 
-                                        @if(auth()->user()->sex === null)
+                                        @if(auth()->user()->sex === "undefined")
                                         <div id="profile-settings" class="tab-pane fade">
                                             <div class="pt-3">
                                                 <div class="settings-form">
