@@ -23,8 +23,6 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->bigInteger('department_id')->default(0);
             $table->string('mobile')->unique()->nullable();
-            $table->date('dob')->nullable();
-            $table->integer('age')->default(0);
             $table->text('address')->nullable();
             $table->enum('sex', ['undefined', 'male', 'female'])->default('undefined');
             $table->string('signature')->nullable();

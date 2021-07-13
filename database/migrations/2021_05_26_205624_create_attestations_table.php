@@ -19,7 +19,7 @@ class CreateAttestationsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->enum('oldie', ['undefined', 'yes', 'no'])->default('undefined'); // have you gone to the gym before
-            $table->integer('time_span')->default(0); // How long have you been to the gym
+            $table->string('time_span')->nullable(); // How long have you been to the gym
             $table->enum('program', ['undefined', 'yes', 'no'])->default('undefined'); // old program or diet
             $table->longText('observations')->nullable(); // if not successful tell us your observations
             $table->longText('training_goal')->nullable(); // Tell us goal for trianing

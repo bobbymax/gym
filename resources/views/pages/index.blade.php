@@ -27,7 +27,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+     </div>
      <div class="row">
          <div class="col-xl-12">
                     <div class="card">
@@ -45,15 +45,18 @@
                                         <li class="nav-item"><a href="#attestation" data-toggle="tab" class="nav-link">Attestation</a>
                                         </li>
                                         @endif
-                                        @if(! is_object(auth()->user()->medical))
-                                        <li class="nav-item"><a href="#medicals" data-toggle="tab" class="nav-link">Medicals</a>
-                                        </li>
+                                        @if(auth()->user()->type === "medical")
+                                            @if(! is_object(auth()->user()->medical))
+                                                <li class="nav-item">
+                                                    <a href="#medicals" data-toggle="tab" class="nav-link">Medicals</a>
+                                                </li>
+                                            @endif
                                         @endif
                                     </ul>
                                     <div class="tab-content">
                                         <div id="about-me" class="tab-pane fade active show">
                                             <div class="profile-personal-info">
-                                                <h4 class="text-primary mb-4">Personal Information</h4>
+                                                <h4 class="text-primary mb-4 mt-4">Personal Information</h4>
                                                 <div class="row mb-4 mb-sm-4">
                                                     <div class="col-sm-3">
                                                         <h5 class="f-w-500">Name <span class="pull-right d-none d-sm-block">:</span></h5>
@@ -69,21 +72,6 @@
                                                     <div class="col-sm-9"><span>{{ auth()->user()->email ?? 'Not Set' }}</span>
                                                     </div>
                                                 </div>
-                                                <div class="row mb-4 mb-sm-4">
-                                                    <div class="col-sm-3">
-                                                        <h5 class="f-w-500">Department <span class="pull-right d-none d-sm-block">:</span></h5>
-                                                    </div>
-                                                    <div class="col-sm-9"><span>{{ auth()->user()->department->name ?? ' Not Set' }}</span>
-                                                    </div>
-                                                </div>
-                                                <div class="row mb-4 mb-sm-4">
-                                                    <div class="col-sm-3">
-                                                        <h5 class="f-w-500">Age <span class="pull-right d-none d-sm-block">:</span>
-                                                        </h5>
-                                                    </div>
-                                                    <div class="col-sm-9"><span>{{ auth()->user()->age != 0 ? auth()->user()->age : 'Not Set' }}</span>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
 
@@ -96,37 +84,27 @@
                                                         @csrf
                                                         @method('PATCH')
                                                         <div class="row">
-                                                            <div class="col-3">
+                                                            <div class="col-4">
                                                                 <div class="form-group">
                                                                     <input type="text" name="staff_no" class="form-control" placeholder="Enter Staff ID" value="{{ auth()->user()->staff_no }}">
                                                                 </div>
                                                             </div>
-                                                            <div class="col-3">
+                                                            <div class="col-4">
                                                                 <div class="form-group">
                                                                     <input type="text" name="name" class="form-control" placeholder="Enter Fullname" value="{{ auth()->user()->name }}">
                                                                 </div>
                                                             </div>
-                                                            <div class="col-3">
+                                                            <div class="col-4">
                                                                 <div class="form-group">
                                                                     <input type="text" name="email" class="form-control" placeholder="Enter Email" value="{{ auth()->user()->email }}">
                                                                 </div>
                                                             </div>
-                                                            <div class="col-3">
+                                                            <div class="col-4">
                                                                 <div class="form-group">
                                                                     <input type="text" name="mobile" class="form-control" placeholder="Enter Mobile Number" value="{{ auth()->user()->mobile ?? old('mobile') }}">
                                                                 </div>
                                                             </div>
-                                                            <div class="col-3">
-                                                                <div class="form-group">
-                                                                    <input type="date" name="dob" class="form-control" placeholder="Select Date of Birth" value="{{ auth()->user()->dob }}">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-3">
-                                                                <div class="form-group">
-                                                                    <input type="number" name="age" class="form-control" placeholder="Enter Age" value="{{ auth()->user()->age }}">
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-3">
+                                                            <div class="col-4">
                                                                 <div class="form-group">
                                                                     <select name="sex" id="sex" class="form-control">
                                                                         <option value="" selected disabled>Select Gender</option>
@@ -135,7 +113,7 @@
                                                                     </select>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-3">
+                                                            <div class="col-4">
                                                                 <div class="form-group">
                                                                     <select name="type" id="type" class="form-control">
                                                                         <option value="" selected disabled>Select Staff Type</option>

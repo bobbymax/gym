@@ -96,8 +96,6 @@ class MemberController extends Controller
             'name' => 'required',
             'email' => 'required',
             'mobile' => 'required',
-            'dob' => 'required',
-            'age' => 'required',
             'sex' => 'required',
             'type' => 'required',
         ]);
@@ -106,9 +104,7 @@ class MemberController extends Controller
         $user->name = $request->name;
         $user->email = $request->email;
         $user->mobile = $request->mobile;
-        $user->dob = Carbon::parse($request->dob);
         $user->staff_no = $request->staff_no;
-        $user->age = $request->age;
         $user->sex = $request->sex;
         $user->type = $request->type;
 

@@ -43,7 +43,7 @@ class AttestationController extends Controller
     {
         $this->validate($request, [
             'oldie' => 'required|string',
-            'time_span' => 'required|integer',
+            'time_span' => 'required|string',
             'program' => 'required|string',
             'success_rate' => 'required',
             'training_goal' => 'required|min:5'
@@ -96,7 +96,7 @@ class AttestationController extends Controller
     {
         $this->validate($request, [
             'oldie' => 'required|string',
-            'time_span' => 'required|integer',
+            'time_span' => 'required|string',
             'program' => 'required|string',
             'success_rate' => 'required',
             'training_goal' => 'required|min:5'
@@ -123,6 +123,6 @@ class AttestationController extends Controller
     public function destroy(User $user, Attestation $attestation)
     {
         $attestation->delete();
-        return redirect()->route('users.index');
+        return back();
     }
 }
