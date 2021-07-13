@@ -6,7 +6,7 @@ Route::get('/', function () {
     return view('layouts.home');
 })->name('welcome');
 
-Route::get('/fronter', 'MemberController@excelAdd');
+// Route::get('/fronter', 'MemberController@excelAdd');
 
 Auth::routes();
 
