@@ -11,6 +11,7 @@
                         <table id="example5" class="display min-w850">
                             <thead>
                             <tr>
+                                <th>Date</th>
                                 <th>Name</th>
                                 <th>Blood Pressure</th>
                                 <th>Arrival</th>
@@ -19,20 +20,15 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($attendance as $attendee)
+                            @foreach($attendances as $attendee)
                                 <tr>
+                                    <td>{{ $attendee->created_at->format('d M, y') }}</td>
                                     <td>{{ $attendee->staff->name }}</td>
                                     <td>{{ $attendee->top_level . " / " . $attendee->bottom_level }}</td>
                                     <td>{{ $attendee->created_at->format('H:i:s') }}</td>
+                                    <td>{{ $attendee->updated_at->format('H:i:s') }}</td>
                                     <td>
-                                        <div class="dropdown ml-auto text-right">
-                                            <div class="btn-link" data-toggle="dropdown">
-                                                <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1"><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><rect x="0" y="0" width="24" height="24"></rect><circle fill="#000000" cx="5" cy="12" r="2"></circle><circle fill="#000000" cx="12" cy="12" r="2"></circle><circle fill="#000000" cx="19" cy="12" r="2"></circle></g></svg>
-                                            </div>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#">Check Out</a>
-                                            </div>
-                                        </div>
+                                        <a class="btn btn-primary {{ $attendee->closed ? ' disabled' : '' }}" href="{{ route('check.out', $attendee->id) }}">Check Out</a>
                                     </td>
                                 </tr>
                             @endforeach

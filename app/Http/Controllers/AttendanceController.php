@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Attendance;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class AttendanceController extends Controller
@@ -18,16 +19,16 @@ class AttendanceController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function index()
+    public function index(User $user)
     {
-        $attendance = Attendance::latest()->get();
-        return view('pages.attendance.index', compact('attendance'));
+        $attendances = $user->attendances;
+        return view('pages.attendance.index', compact('attendances', 'user'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function create(User $user)
     {
@@ -55,7 +56,7 @@ class AttendanceController extends Controller
             'attended' => $request->attended
         ]);
 
-        return redirect()->route('attendances.index');
+        return redirect()->route('attendances.index', $user->staff_no);
     }
 
     /**
@@ -90,6 +91,15 @@ class AttendanceController extends Controller
     public function update(Request $request, Attendance $attendance)
     {
         //
+    }
+
+    public function checkout(Attendance $attendance)
+    {
+        $attendance->updated_at = Carbon::now();
+        $attendance->closed = true;
+        $attendance->save();
+
+        return back();
     }
 
     /**
